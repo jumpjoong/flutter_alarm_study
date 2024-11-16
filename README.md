@@ -1,16 +1,12 @@
-# flutter_alarm_package
+# alarm_package
 
-A new Flutter project.
+알람 패키지를 이용하여 알람 띄우기
 
-## Getting Started
+## 알람 설명 
 
-This project is a starting point for a Flutter application.
+화면 가운데에 확인 버튼을 누르면 팝업창이 뜨는데 시간대가 뜨는 팝업창? 이 나온다. 해당 시간을 설정하고 확인을 누르면
+이전 화면으로 가고 시간 설정이 되었다면 scheduleNotification 함수가 실행되고 내가 설정한 시간, 분을 받아온다.
+아시아/서울 시간대를 구하고 _showNotification 함수에 아시아/서울 시간대에 내가 추가한 시간, 분을 받아와서 
+해당 시간대에 알람을 설정한다.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+해당 패키지를 이용하기 위해 tz 패키지, 알람 패키지를 사용해야한다. 정해진 시간을 구할 필요없다면 tz패키지는 필요 없다.
