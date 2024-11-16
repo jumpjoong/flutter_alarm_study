@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -38,7 +36,7 @@ void _initializationSetting() async {
   );
 }
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
   tz.initializeTimeZones();
   _initializationSetting();
@@ -75,7 +73,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   TimeOfDay? selectedTime;
 
-  Future<void> scheduleNotification(int hour, int minute) async {
+  void scheduleNotification(int hour, int minute) async {
     final now = tz.TZDateTime.now(tz.getLocation('Asia/Seoul'));
     final scheduledDate = tz.TZDateTime(
       tz.getLocation('Asia/Seoul'),
@@ -88,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
     _showNotification(scheduledDate);
   }
 
-  _showNotification(scheduledDate) async {
+  void _showNotification(scheduledDate) async {
     const AndroidNotificationDetails androidNotificationDetails =
         AndroidNotificationDetails('your channel id', 'your channel name',
             channelDescription: 'your channel description',
@@ -104,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle);
   }
 
-  Future<void> _showCupertinoTimePicker(BuildContext context) async {
+  void _showCupertinoTimePicker(BuildContext context) async {
     showCupertinoModalPopup(
       context: context,
       builder: (_) => SingleChildScrollView(
